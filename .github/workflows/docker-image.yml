@@ -15,9 +15,9 @@ jobs:
     steps:
     - name: Exibindo variáveis 
       run: |
-        echo "${{ github.event }}"
-        echo "${{ github.repository.name }}"
-        echo "${{ inputs.image_version }}"
+        echo "{{ github.event }}"
+        echo "{{ github.event.repository.name }}"
+        echo "{{ inputs.image_version }}"
 
   build_push:
     name: Build and Push Docker image 
