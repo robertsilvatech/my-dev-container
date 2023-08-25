@@ -8,10 +8,13 @@ on:
         required: true
     
 jobs:
-  test-variables:
+  test_variables:
+    name: Testando variaveis
     runs-on: ubuntu-latest
+    
     steps:
-      - run: |
+    - name: Exibindo variáveis 
+      run: |
         echo "{{ github.event }}"
         echo "{{ github.repository.name }}"
         echo "{{ inputs.image_version }}"
