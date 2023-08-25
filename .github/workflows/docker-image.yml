@@ -1,0 +1,23 @@
+name: Docker Image CI
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_version:
+        description: Image Version
+        required: true
+    
+jobs:
+  test-variables:
+    runs-on: ubuntu-lates
+    steps:
+      - run: |
+        echo "{{ github.event }}
+        echo "{{ github.repository.name }}
+        echo "{{ inputs.image_version }}"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    #- name: Build the Docker image
+    #  run: docker build . --file Dockerfile --tag {{ }}:$(date +%s)
