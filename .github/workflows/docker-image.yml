@@ -15,14 +15,14 @@ jobs:
     steps:
     - name: Exibindo variáveis 
       run: |
-        echo "{{ github.event }}"
-        echo "{{ github.event.repository.name }}"
-        echo "{{ inputs.image_version }}"
+        echo "${{ github.event }}"
+        echo "${{ github.event.repository.name }}"
+        echo "${{ inputs.image_version }}"
 
   build_push:
     name: Build and Push Docker image 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    #- name: Build the Docker image
-    #  run: docker build . --file Dockerfile --tag {{ }}:$(date +%s)
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag $${{ github.event.repository.name }}:${{ inputs.image_version }}
