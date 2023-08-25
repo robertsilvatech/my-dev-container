@@ -9,12 +9,13 @@ on:
     
 jobs:
   test-variables:
-    runs-on: ubuntu-lates
+    runs-on: ubuntu-latest
     steps:
       - run: |
-        echo "{{ github.event }}
-        echo "{{ github.repository.name }}
+        echo "{{ github.event }}"
+        echo "{{ github.repository.name }}"
         echo "{{ inputs.image_version }}"
+
   build:
     runs-on: ubuntu-latest
     steps:
