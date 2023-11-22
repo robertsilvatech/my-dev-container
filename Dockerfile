@@ -1,6 +1,6 @@
 FROM python:3.10-slim
 
-RUN apt update && apt install vim curl wget unzip telnet tcpdump ncat openssl -y 
+RUN apt update && apt install vim curl wget unzip telnet tcpdump ncat openssl gettext -y 
 
 # jq & yq
 RUN apt install jq wget -y && \
