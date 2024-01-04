@@ -36,3 +36,8 @@ RUN apt install -y golang-go
 # Install Kustomize
 RUN export KUSTOMIZE_VERSION="v5.1.1" && \
     go install sigs.k8s.io/kustomize/kustomize/v5@$KUSTOMIZE_VERSION
+
+# Kyberveno
+RUN curl -LO https://github.com/kyverno/kyverno/releases/download/v1.10.0/kyverno-cli_v1.10.0_linux_x86_64.tar.gz && \
+    tar -xvf kyverno-cli_v1.10.0_linux_x86_64.tar.gz && \
+    cp kyverno /usr/local/bin/
